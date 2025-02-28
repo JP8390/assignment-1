@@ -29,11 +29,13 @@ export const metadata: Metadata = {
     "Pokémon Abilities",
     "Next.js SEO",
   ],
-  authors: [{ name: "Jatin Patil", url: "https://yourwebsite.com" }],
-  metadataBase: new URL("https://yourpokemonapp.com"),
+  authors: [
+    { name: "Jatin Patil", url: "https://assignment-1-beryl-ten.vercel.app/" },
+  ],
+  metadataBase: new URL("https://assignment-1-beryl-ten.vercel.app/"),
   robots: "index, follow",
   alternates: {
-    canonical: "https://yourpokemonapp.com",
+    canonical: "https://assignment-1-beryl-ten.vercel.app/",
   },
 };
 

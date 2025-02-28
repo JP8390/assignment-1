@@ -3,9 +3,11 @@ import { PokemonDetailed } from "@/utils/fetchPokemon";
 import Image from "next/image";
 import Link from "next/link";
 
-
-
-export default function PokemonDetails({ pokemon }: { pokemon: PokemonDetailed }) {
+export default function PokemonDetails({
+  pokemon,
+}: {
+  pokemon: PokemonDetailed;
+}) {
   return (
     <section className="max-w-[85%] md:max-w-3xl mx-auto p-6 bg-white text-gray-600 shadow-lg rounded-lg my-10">
       <div className="text-center">
@@ -33,16 +35,13 @@ export default function PokemonDetails({ pokemon }: { pokemon: PokemonDetailed }
 
       <div className="mt-4">
         <h3 className="text-lg font-semibold">Type:</h3>
-        <div className="flex gap-2 mt-2">
+        <ul className="list-disc ml-5">
           {pokemon.types.map(({ type }: { type: { name: string } }) => (
-            <span
-              key={type.name}
-              className="bg-green-800 text-white px-3 py-1 rounded-lg"
-            >
+            <li key={type.name} className="capitalize">
               {type.name}
-            </span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
 
       <div className="mt-4">

@@ -22,7 +22,7 @@ export interface PokemonDetailed {
 }
 export async function fetchPokemon(offset: number = 0): Promise<Pokemon[]> {
   const response = await fetch(
-    `https://pokeapi.co/api/v2/pokemon?limit=15&offset=${offset}`
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/pokemon?limit=15&offset=${offset}`
   );
   const data = await response.json();
 
@@ -45,9 +45,12 @@ export async function fetchPokemon(offset: number = 0): Promise<Pokemon[]> {
 export async function fetchPokemonById(
   id: string
 ): Promise<PokemonDetailed | null> {
-  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
-    next: { revalidate: 86400 },
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/pokemon/${id}`,
+    {
+      next: { revalidate: 86400 },
+    }
+  );
   if (!res.ok) return null;
   const details = await res.json();
   return details;

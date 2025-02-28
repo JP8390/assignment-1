@@ -87,21 +87,4 @@ npm run dev
 
 ---
 
-## 🚀 Deployment
-**For Vercel Deployment:**
-```sh
-yarn build && yarn start
-# or
-npm run
----
 
-## 🚀 Features
-
-- 🔍 **Search Pokémon** by name
-- 📜 **View detailed stats**, abilities, types
-- 📦 **Load more Pokémon** dynamically
-- ⚡ **Fast performance with Next.js & TailwindCSS**
-- 🏗️ **Server-Side Rendering (SSR) with API Routes**
-- 🛠️ **SEO Optimized Metadata**
-
----

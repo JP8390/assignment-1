@@ -5,21 +5,21 @@ import PokemonDetails from "@/component/pages/PokemonDetails";
 export const revalidate = 86400;
 
 export async function generateStaticParams() {
-  const ids = Array.from({ length: 10 }, (_, i) => (i + 1).toString());
-  return ids.map((id) => ({ id }));
+  const ids = Array.from({ length: 10 }, (_, i) => ({
+    id: (i + 1).toString(),
+  }));
+  return ids;
 }
 
-interface Params {
-  id: string;
-}
-
-export default async function PokemonDetailsPage({
+export default async function Page({
   params,
 }: {
-  params: Params;
+  params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
   const pokemon = await fetchPokemonById(id);
+
   if (!pokemon) return notFound();
+
   return <PokemonDetails pokemon={pokemon} />;
 }
